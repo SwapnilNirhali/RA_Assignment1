@@ -16,4 +16,6 @@ export function useLogger() {
   }
 
   return {changedValue, changeValue}
-}
+};
+
+export default useLogger;

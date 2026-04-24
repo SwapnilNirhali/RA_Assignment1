@@ -26,7 +26,7 @@ function useLocalStorage(){
     setLocalStorageValue(value)
   }
   
-  return {localStorageValue, storeLocally}
+  return {localStorageValue, storeLocally, getLocalValue}
 }
 
 function App() {
