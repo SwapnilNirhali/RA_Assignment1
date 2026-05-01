@@ -10,28 +10,11 @@ import { useCounter, useCustomLogger } from './useCounter'
 import {useToggle}  from "./useToggle"
 import useFetch from "./useFetch"
 import {useLogger} from "./useLogger"
-import { useState, useEffect } from "react"
-
-function useLocalStorage(){
-  const [localStorageValue, setLocalStorageValue] =  useState("")
-  
-  useEffect(() => { getLocalValue("myKey")}, [])
-
-  function storeLocally(key, localValue){
-    localStorage.setItem(key, localValue)
-  }
-
-  function getLocalValue(key){
-    const value = localStorage.getItem(key)
-    setLocalStorageValue(value)
-  }
-  
-  return {localStorageValue, storeLocally, getLocalValue}
-}
+import { useLocalStorage } from "./useLocalStorage"
 
 function App() {
   
-  const {counter, incrementCounter, decrementCounter, resetCounter} = useCounter();
+  const {counter, incrementCounter, decrementCounter, resetCounter} = useCounter(0);
   const { booleanState, toggle } = useToggle();
   const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/users');
   const{changedValue, changeValue}=useLogger();

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product Requirements Document - React Custom Hooks Demo</title>
+<style>
+body {
+font-family: Calibri, Arial, sans-serif;
+font-size: 11pt;
+line-height: 1.5;
+margin: 1in;
+}
+h1 {
+font-size: 16pt;
+font-weight: bold;
+text-align: center;
+margin-bottom: 24pt;
+}
+h2 {
+font-size: 14pt;
+font-weight: bold;
+border-bottom: 1pt solid #000;
+padding-bottom: 6pt;
+margin-top: 18pt;
+}
+h3 {
+font-size: 12pt;
+font-weight: bold;
+margin-top: 12pt;
+}
+table {
+border-collapse: collapse;
+width: 100%;
+margin: 12pt 0;
+}
+th, td {
+border: 1pt solid #000;
+padding: 8pt;
+text-align: left;
+}
+th {
+background-color: #D9D9D9;
+font-weight: bold;
+}
+p {
+margin: 12pt 0;
+}
+ul, ol {
+margin: 12pt 0;
+padding-left: 0.5in;
+}
+li {
+margin-bottom: 6pt;
+}
+</style>
+</head>
+<body>
+
+<h1>Product Requirements Document (PRD)</h1>
+
+<h2>1. Project Overview</h2>
+
+<h3>1.1 Project Name</h3>
+<p><strong>React Custom Hooks Demo</strong> (react-advance-ra2)</p>
+
+<h3>1.2 Project Type</h3>
+<p>Web Application - Interactive Demo / Learning Platform</p>
+
+<h3>1.3 Core Functionality</h3>
+<p>A React-based demonstration application showcasing custom hooks functionality including counter, toggle, data fetching, value logging, and local storage management.</p>
+
+<h3>1.4 Target Users</h3>
+<ul>
+<li>React developers learning custom hooks</li>
+<li>Frontend developers exploring state management patterns</li>
+<li>Students learning React best practices</li>
+</ul>
+
+<h2>2. User Stories</h2>
+
+<table>
+<tr>
+<th>ID</th>
+<th>User Story</th>
+<th>Priority</th>
+</tr>
+<tr>
+<td>US1</td>
+<td>As a user, I want to increment/decrement a counter so that I can see numeric state changes</td>
+<td>Must Have</td>
+</tr>
+<tr>
+<td>US2</td>
+<td>As a user, I want to reset the counter to zero</td>
+<td>Must Have</td>
+</tr>
+<tr>
+<td>US3</td>
+<td>As a user, I want to toggle a boolean state on/off</td>
+<td>Must Have</td>
+</tr>
+<tr>
+<td>US4</td>
+<td>As a user, I want to fetch and display data from an external API</td>
+<td>Must Have</td>
+</tr>
+<tr>
+<td>US5</td>
+<td>As a user, I want to see logged values as I type in an input field</td>
+<td>Must Have</td>
+</tr>
+<tr>
+<td>US6</td>
+<td>As a user, I want to store and retrieve values from browser localStorage</td>
+<td>Should Have</td>
+</tr>
+</table>
+
+<h2>3. Functional Requirements</h2>
+
+<h3>3.1 Counter Feature (useCounter)</h3>
+<ul>
+<li><strong>FR1.1</strong>: Display current counter value (starts at 0)</li>
+<li><strong>FR1.2</strong>: Increment button increases counter by 1</li>
+<li><strong>FR1.3</strong>: Decrement button decreases counter by 1</li>
+<li><strong>FR1.4</strong>: Reset button sets counter back to 0</li>
+<li><strong>FR1.5</strong>: Use functional state update setCounter(prev =&gt; prev + 1)</li>
+</ul>
+
+<h3>3.2 Toggle Feature (useToggle)</h3>
+<ul>
+<li><strong>FR2.1</strong>: Display current boolean state (true/false)</li>
+<li><strong>FR2.2</strong>: Toggle button switches between true and false</li>
+<li><strong>FR2.3</strong>: Visual indicator shows "Enabled" or "Disabled" text</li>
+</ul>
+
+<h3>3.3 Data Fetching Feature (useFetch)</h3>
+<ul>
+<li><strong>FR3.1</strong>: Fetch data from JSONPlaceholder API</li>
+<li><strong>FR3.2</strong>: Display loading state while fetching</li>
+<li><strong>FR3.3</strong>: Display error message if fetch fails</li>
+<li><strong>FR3.4</strong>: Display list of user names from API response</li>
+</ul>
+
+<h3>3.4 Value Logging Feature (useLogger)</h3>
+<ul>
+<li><strong>FR4.1</strong>: Text input captures user keystrokes</li>
+<li><strong>FR4.2</strong>: Log each value change to console</li>
+<li><strong>FR4.3</strong>: Display current input value on screen</li>
+</ul>
+
+<h3>3.5 Local Storage Feature (useLocalStorage)</h3>
+<ul>
+<li><strong>FR5.1</strong>: Text input stores value to browser localStorage</li>
+<li><strong>FR5.2</strong>: Retrieve and display stored value on page load</li>
+<li><strong>FR5.3</strong>: Use key "myKey" for storage operations</li>
+</ul>
+
+<h2>4. Technical Architecture</h2>
+
+<h3>4.1 Tech Stack</h3>
+
+<table>
+<tr>
+<th>Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>React</td>
+<td>^19.2.4</td>
+<td>UI Framework</td>
+</tr>
+<tr>
+<td>Vite</td>
+<td>^8.0.4</td>
+<td>Build Tool</td>
+</tr>
+<tr>
+<td>Bootstrap</td>
+<td>^5.3.8</td>
+<td>CSS Framework</td>
+</tr>
+<tr>
+<td>ESLint</td>
+<td>^9.39.4</td>
+<td>Code Linting</td>
+</tr>
+</table>
+
+<h3>4.2 Custom Hooks Structure</h3>
+<pre>src/
+├── useCounter.jsx    # Counter state management
+├── useToggle.jsx     # Boolean toggle state
+├── useFetch.jsx      # Data fetching with loading/error states
+├── useLogger.jsx    # Input value logging
+└── useLocalStorage.jsx  # Browser localStorage integration</pre>
+
+<h2>5. UI/UX Requirements</h2>
+
+<h3>5.1 Layout Structure</h3>
+<ul>
+<li>Single page application</li>
+<li>Centered content layout</li>
+<li>Section-based component arrangement</li>
+</ul>
+
+<h3>5.2 Visual Design</h3>
+<ul>
+<li><strong>Framework</strong>: Bootstrap 5</li>
+<li><strong>Icons</strong>: Custom images for buttons (plus, minus, reset)</li>
+<li><strong>Images</strong>: React logo, Vite logo, hero image</li>
+<li><strong>Styling</strong>: App.css for custom styles</li>
+</ul>
+
+<h2>6. Non-Functional Requirements</h2>
+
+<h3>6.1 Performance</h3>
+<ul>
+<li>Initial load time less than 3 seconds</li>
+<li>No memory leaks from useEffect hooks</li>
+<li>Proper cleanup of subscriptions</li>
+</ul>
+
+<h3>6.2 Browser Compatibility</h3>
+<ul>
+<li>Chrome (latest)</li>
+<li>Firefox (latest)</li>
+<li>Edge (latest)</li>
+<li>Safari (latest)</li>
+</ul>
+
+<h3>6.3 Code Quality</h3>
+<ul>
+<li>ESLint with React hooks plugin</li>
+<li>No unused variables (except those starting with uppercase)</li>
+<li>Proper React hooks dependencies array</li>
+</ul>
+
+<h2>7. API Integration</h2>
+
+<table>
+<tr>
+<th>API</th>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>JSONPlaceholder</td>
+<td>https://jsonplaceholder.typicode.com/users</td>
+<td>User data fetching</td>
+</tr>
+</table>
+
+<h3>7.1 Error Handling</h3>
+<ul>
+<li>Network errors: Display "Network response was not ok"</li>
+<li>Fetch errors: Display "An error occurred while fetching data"</li>
+<li>Loading state: Show "Loading..." text</li>
+</ul>
+
+<h2>8. Out of Scope</h2>
+<p>The following features are <strong>not included</strong> in this version:</p>
+<ul>
+<li>User authentication</li>
+<li>Data persistence to backend database</li>
+<li>Server-side rendering</li>
+<li>Progressive Web App (PWA) features</li>
+<li>Unit/Integration tests</li>
+<li>Dark mode / theming</li>
+</ul>
+
+<h2>9. Success Metrics</h2>
+
+<table>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+<tr>
+<td>Build Success Rate</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>ESLint Errors</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Console Errors</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Page Load Time</td>
+<td>&lt; 3s</td>
+</tr>
+</table>
+
+<h2>10. Future Enhancements</h2>
+<ul>
+<li>Add TypeScript support</li>
+<li>Implement unit tests with Jest/React Testing Library</li>
+<li>Add form validation</li>
+<li>Create additional custom hooks (useDebounce, useLocalStorage)</li>
+<li>Add routing with React Router</li>
+<li>Implement state management with Context API or Redux</li>
+</ul>
+
+<hr>
+<p><strong>Document Version</strong>: 1.0<br>
+<strong>Last Updated</strong>: April 25, 2026<br>
+<strong>Author</strong>: Development Team</p>
+
+</body>
+</html>

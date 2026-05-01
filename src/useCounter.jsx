@@ -3,9 +3,9 @@ import { useState } from 'react';
 export function useCustomLogger(counter) {
   console.log("from CustomLogger ....", counter);
 }
-export function useCounter() {
+export function useCounter(int) {
 
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(int);
 
   function incrementCounter() {
     setCounter((counter) => counter + 1);
